@@ -1,0 +1,18 @@
+//
+// SPDX-FileCopyrightText: The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_library_shared {
+    name: "libhdr.s5e8825",
+    srcs: ["hdrInterface.cpp"],
+    shared_libs: [
+        "libbase",
+        "//vendor/samsung/s5e8825-common:libhdr_plugin.s5e8825",
+    ],
+    header_libs: [
+        "libhdrinterface_header_default",
+        "libsystem_headers",
+    ],
+    vendor: true,
+}
