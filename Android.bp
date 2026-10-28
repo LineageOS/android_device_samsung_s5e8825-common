@@ -4,5 +4,8 @@
 //
 
 soong_namespace {
-    imports: ["vendor/samsung/s5e8825-common"],
+    imports: [
+        "hardware/samsung_slsi-linaro/exynos",
+        "vendor/samsung/s5e8825-common",
+    ],
 }
