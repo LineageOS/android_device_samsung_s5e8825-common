@@ -627,6 +627,13 @@ on post-fs-data
     chmod 0666 /sys/devices/platform/17000010.devfreq_mif/devfreq/17000010.devfreq_mif/scaling_devfreq_max
     chmod 0666 /sys/devices/platform/17000010.devfreq_mif/devfreq/17000010.devfreq_mif/scaling_devfreq_min
 
+    # Permissions for ARGOS
+    chown system system /dev/network_throughput
+    chown system system /sys/firmware/devicetree/base/argos/boot_device@1/net_boost,sysnode
+    chown system system /sys/firmware/devicetree/base/argos/boot_device@2/net_boost,sysnode
+    chown system system /sys/firmware/devicetree/base/argos/boot_device@3/net_boost,sysnode
+    chown system system /sys/kernel/blk_sec_stats/transferred_bytes
+
 on boot
     # Permissions for Touchscreen
     chown system system /sys/class/sec/tsp/cmd
