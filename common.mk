@@ -156,6 +156,9 @@ PRODUCT_PACKAGES += \
 # Kernel - Modules
 PRODUCT_PACKAGES += toolbox.vendor_ramdisk
 
+# Network
+PRODUCT_PACKAGES += argosd
+
 # Neural Networks
 PRODUCT_PACKAGES += \
     android.hardware.neuralnetworks@1.3-service.eden-drv \
