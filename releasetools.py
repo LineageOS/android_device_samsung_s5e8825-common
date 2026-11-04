@@ -103,7 +103,7 @@ def AppendModelAssertion(info, models):
 
 def AppendFirmwareAssertion(info, model, firmwares):
     abort_msg = (
-        f'abort("E3004: This package requires \\"{"|".join(firmwares)}\\" '
+        f'abort("E3004: This package requires \\"{firmwares[-1]}\\" '
         f'bootloader; you have \\"" + {BOOTLOADER} + "\\".");'
     )
 
