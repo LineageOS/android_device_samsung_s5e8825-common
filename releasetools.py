@@ -43,14 +43,14 @@ def Emit(info, depth, line):
     info.script.AppendExtra(INDENT * depth + line)
 
 
-def AppendGuarded(info, conds, body):
-    for depth, cond in enumerate(conds):
-        Emit(info, depth, f'if {cond} then')
+def AppendGuarded(info, conds, body, depth=0):
+    for offset, cond in enumerate(conds):
+        Emit(info, depth + offset, f'if {cond} then')
 
-    body(len(conds))
+    body(depth + len(conds))
 
-    for depth in reversed(range(len(conds))):
-        Emit(info, depth, 'endif;')
+    for offset in reversed(range(len(conds))):
+        Emit(info, depth + offset, 'endif;')
 
 
 def ParseAndroidInfo(android_info):
@@ -101,16 +101,29 @@ def AppendModelAssertion(info, models):
     )
 
 
-def AppendFirmwareAssertion(info, model, firmwares):
+def AppendFirmwareAssertion(info, model, firmwares, depth=0):
     abort_msg = (
         f'abort("E3004: This package requires \\"{firmwares[-1]}\\" '
         f'bootloader; you have \\"" + {BOOTLOADER} + "\\".");'
     )
 
-    conds = [ModelGuard(model)] if model else []
-    conds.append(BootloaderMismatch(firmwares))
+    if model:
+        Emit(info, depth, f'if {ModelGuard(model)} then')
+        depth += 1
 
-    AppendGuarded(info, conds, lambda depth: Emit(info, depth, abort_msg))
+    conds = [BootloaderMismatch(firmwares)]
+    AppendGuarded(info, conds, lambda depth: Emit(info, depth, abort_msg), depth)
+
+    if len(firmwares) > 1:
+        warning = (
+            f'ui_print("WARNING: You are not running {firmwares[-1]} firmware. '
+            f'Please update to avoid issues.");'
+        )
+        conds[-1] = BootloaderMismatch(firmwares[-1:])
+        AppendGuarded(info, conds, lambda depth: Emit(info, depth, warning), depth)
+
+    if model:
+        Emit(info, depth - 1, 'endif;')
 
 
 def AddImage(info, basename, dest, directory='IMAGES', depth=0):
