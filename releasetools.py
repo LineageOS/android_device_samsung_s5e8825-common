@@ -112,6 +112,14 @@ def AppendFirmwareAssertion(info, model, firmwares):
 
     AppendGuarded(info, conds, lambda depth: Emit(info, depth, abort_msg))
 
+    if len(firmwares) > 1:
+        warning = (
+            f'ui_print("WARNING: You are not running {firmwares[-1]} firmware. '
+            f'Please update to avoid issues.");'
+        )
+        conds[-1] = BootloaderMismatch(firmwares[-1:])
+        AppendGuarded(info, conds, lambda depth: Emit(info, depth, warning))
+
 
 def AddImage(info, basename, dest, directory='IMAGES', depth=0):
     data = info.input_zip.read(f'{directory}/{basename}')
