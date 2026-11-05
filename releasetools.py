@@ -43,14 +43,14 @@ def Emit(info, depth, line):
     info.script.AppendExtra(INDENT * depth + line)
 
 
-def AppendGuarded(info, conds, body):
-    for depth, cond in enumerate(conds):
-        Emit(info, depth, f'if {cond} then')
+def AppendGuarded(info, conds, body, depth=0):
+    for offset, cond in enumerate(conds):
+        Emit(info, depth + offset, f'if {cond} then')
 
-    body(len(conds))
+    body(depth + len(conds))
 
-    for depth in reversed(range(len(conds))):
-        Emit(info, depth, 'endif;')
+    for offset in reversed(range(len(conds))):
+        Emit(info, depth + offset, 'endif;')
 
 
 def ParseAndroidInfo(android_info):
@@ -101,7 +101,7 @@ def AppendModelAssertion(info, models):
     )
 
 
-def AppendFirmwareAssertion(info, model, firmwares):
+def AppendFirmwareAssertion(info, model, firmwares, depth=0):
     abort_msg = (
         f'abort("E3004: This package requires \\"{firmwares[-1]}\\" '
         f'bootloader; you have \\"" + {BOOTLOADER} + "\\".");'
@@ -110,7 +110,7 @@ def AppendFirmwareAssertion(info, model, firmwares):
     conds = [ModelGuard(model)] if model else []
     conds.append(BootloaderMismatch(firmwares))
 
-    AppendGuarded(info, conds, lambda depth: Emit(info, depth, abort_msg))
+    AppendGuarded(info, conds, lambda depth: Emit(info, depth, abort_msg), depth)
 
     if len(firmwares) > 1:
         warning = (
@@ -118,7 +118,7 @@ def AppendFirmwareAssertion(info, model, firmwares):
             f'Please update to avoid issues.");'
         )
         conds[-1] = BootloaderMismatch(firmwares[-1:])
-        AppendGuarded(info, conds, lambda depth: Emit(info, depth, warning))
+        AppendGuarded(info, conds, lambda depth: Emit(info, depth, warning), depth)
 
 
 def AddImage(info, basename, dest, directory='IMAGES', depth=0):
@@ -156,8 +156,11 @@ def OTA_Assertions(info, input_zip):
     if required_models:
         AppendModelAssertion(info, required_models)
 
-    for model, firmwares in required_firmwares:
-        AppendFirmwareAssertion(info, model, firmwares)
+    if required_firmwares:
+        Emit(info, 0, 'if getprop("ro.boot.custom_bootloader") != "1" then')
+        for model, firmwares in required_firmwares:
+            AppendFirmwareAssertion(info, model, firmwares, depth=1)
+        Emit(info, 0, 'endif;')
 
 
 def OTA_InstallEnd(info):
