@@ -161,8 +161,11 @@ def OTA_Assertions(info, input_zip):
     if required_models:
         AppendModelAssertion(info, required_models)
 
-    for model, firmwares in required_firmwares:
-        AppendFirmwareAssertion(info, model, firmwares)
+    if required_firmwares:
+        Emit(info, 0, 'if getprop("ro.boot.custom_bootloader") != "1" then')
+        for model, firmwares in required_firmwares:
+            AppendFirmwareAssertion(info, model, firmwares, depth=1)
+        Emit(info, 0, 'endif;')
 
 
 def OTA_InstallEnd(info):
