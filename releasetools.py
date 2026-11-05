@@ -133,7 +133,7 @@ def AddImage(info, basename, dest, directory='IMAGES', depth=0):
 
 def AppendModemImage(info, model, skips, guarded):
     basename = 'modem.bin' if model is None else f'modem.bin_{model}'
-    conds = []
+    conds = ['getprop("ro.boot.custom_bootloader") != "1"']
 
     if guarded:
         conds.append(f'{MODEL} == "{model}"')
