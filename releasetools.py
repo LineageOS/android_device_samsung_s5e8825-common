@@ -107,7 +107,9 @@ def AppendFirmwareAssertion(info, model, firmwares):
         f'bootloader; you have \\"" + {BOOTLOADER} + "\\".");'
     )
 
-    conds = [ModelGuard(model)] if model else []
+    conds = ['getprop("ro.boot.custom_bootloader") != "1"']
+    if model:
+        conds.append(ModelGuard(model))
     conds.append(BootloaderMismatch(firmwares))
 
     AppendGuarded(info, conds, lambda depth: Emit(info, depth, abort_msg))
