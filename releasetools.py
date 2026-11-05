@@ -134,7 +134,7 @@ def AddImage(info, basename, dest, directory='IMAGES', depth=0):
     Emit(info, depth, f'package_extract_file("{basename}", "{dest}");')
 
 
-def AppendModemImage(info, model, skips, guarded):
+def AppendModemImage(info, model, skips, guarded, depth=0):
     basename = 'modem.bin' if model is None else f'modem.bin_{model}'
     conds = []
 
@@ -151,6 +151,7 @@ def AppendModemImage(info, model, skips, guarded):
         info,
         conds,
         lambda depth: AddImage(info, basename, RADIO, 'RADIO', depth),
+        depth,
     )
 
 
@@ -183,11 +184,14 @@ def OTA_InstallEnd(info):
     ]
 
     guarded = any(model is not None for model in models)
-    for model in models:
-        if guarded and model is None:
-            continue
+    if models:
+        Emit(info, 0, 'if getprop("ro.boot.custom_bootloader") != "1" then')
+        for model in models:
+            if guarded and model is None:
+                continue
 
-        AppendModemImage(info, model, skips, guarded)
+            AppendModemImage(info, model, skips, guarded, depth=1)
+        Emit(info, 0, 'endif;')
 
 
 def FullOTA_Assertions(info):
