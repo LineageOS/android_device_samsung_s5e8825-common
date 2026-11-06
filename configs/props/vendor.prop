@@ -35,7 +35,6 @@ debug.stagefright.ccodec_lax_type=1
 debug.stagefright.ccodec_strict_type=1
 media.c2.dmabuf.padding=512
 media.c2.hal.selection=aidl
-media.stagefright.thumbnail.prefer_hw_codecs=1
 ro.vendor.gpu.dataspace=1
 
 # Display
