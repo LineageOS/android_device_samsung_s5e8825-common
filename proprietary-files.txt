@@ -99,7 +99,6 @@ vendor/lib64/libfloatingfeature.so
 vendor/lib64/libsecnativefeature.so
 
 # Neural Networks
-vendor/etc/eden/gpu/eden_kernel_64.bin
 vendor/lib64/libcommon.so
 vendor/lib64/libcommon_graphgen_export.so
 vendor/lib64/libcrane_compiler.so
@@ -143,6 +142,7 @@ vendor/lib64/libtoco_graphgen_export.so
 vendor/etc/eden/enn_preset.json
 
 # Neural Networks - Firmware
+vendor/etc/eden/gpu/eden_kernel_64.bin
 vendor/firmware/OD_V2.1.6_01_26_QVGA.nnc
 vendor/firmware/OD_V2.3.7_02_05_VGA.nnc
 
