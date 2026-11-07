@@ -91,7 +91,6 @@ vendor/etc/gnss/gps.cfg
 vendor/etc/init/init.gps.rc
 vendor/etc/init/vendor.samsung.hardware.gnss-service.rc
 vendor/lib64/libwrappergps.so
-vendor/lib64/vendor.samsung.hardware.gnss-V4-ndk.so
 
 # Graphics
 vendor/lib64/egl/libGLES_mali.so;SYMLINK=vendor/lib64/libOpenCL.so,vendor/lib64/libOpenCL.so.1,vendor/lib64/libOpenCL.so.1.1
