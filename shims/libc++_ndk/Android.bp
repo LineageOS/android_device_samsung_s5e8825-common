@@ -1,0 +1,22 @@
+//
+// SPDX-FileCopyrightText: The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_library_shared {
+    name: "libc++_ndk.samsung.build",
+    stem: "libc++_ndk.samsung",
+    stl: "none",
+    whole_static_libs: [
+        "ndk_libc++_static",
+        "ndk_libc++abi",
+    ],
+    installable: false,
+}
+
+cc_prebuilt_library_shared {
+    name: "libc++_ndk.samsung",
+    srcs: [":libc++_ndk.samsung.build"],
+    stl: "none",
+    vendor: true,
+}
