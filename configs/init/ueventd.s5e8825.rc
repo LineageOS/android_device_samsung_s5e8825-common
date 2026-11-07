@@ -202,7 +202,7 @@
 /dev/ramdump_memshare     0660   system     system
 
 # NPU
-/dev/vertex10             0660   system      system
+/dev/vertex10             0660   system      camera
 
 # Modem Interface
 /dev/block/by-name/radio    0660   system     radio
