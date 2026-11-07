@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-# Common proprietary files - from A256BXXSEEZH9, unless pinned
+# Common proprietary files - from A266MUBUCDZJ5, unless pinned
 
 # Audio - Configuration
 vendor/etc/audio_board_info.xml
@@ -36,6 +36,9 @@ vendor/firmware/bidirmic.bin
 vendor/firmware/dolby.bin
 vendor/firmware/listenbackeffect.bin
 vendor/firmware/volumemonitor.bin
+
+# Audio - Firmware - from a25x - A256BXXSEEZH9
+vendor/firmware/dax_param.bin|b5df167b35bc3299b6b87e6e2d19bd136f2d675a
 
 # Camera - Dummy
 vendor/lib64/libexynoscamera3.so;DUMMY_SHARED_LIB
@@ -72,81 +75,72 @@ vendor/etc/dqe/calib_data_rgbgain.xml
 vendor/etc/dqe/calib_data_skincolor.xml
 vendor/etc/dqe/calib_data_whitepoint.xml
 
-# Display - HDR
-vendor/lib64/libdpuhdr10p_8825.so
-vendor/lib64/libhdr10p_meta_plugin_default.so
-vendor/lib64/libhdr_plugin_exynos8825.so
+# Display - HDR - from a25x - A256BXXSEEZH9
+vendor/lib64/libdpuhdr10p_8825.so|ee4c2be7b10f3dea28f82c0454a8255eed54c2f9
+vendor/lib64/libhdr10p_meta_plugin_default.so|312809cbf7a99c37ce02643c4a482366d3f634bf
+vendor/lib64/libhdr_plugin_exynos8825.so|74f4694838ffc4e43d9cf90fad7b41715b2b3b80
 
-# DRM - Widevine - from a55x - A556BXXSGDZG2
-vendor/apex/com.google.android.widevine.nonupdatable.apex|e1760a5b5063cc4cec93721b518022ed8ad87511
+# DRM - Widevine
+vendor/apex/com.google.android.widevine.nonupdatable.apex
 
 # GNSS
 vendor/bin/hw/gps.sh
 vendor/bin/hw/gpsd
+vendor/bin/hw/vendor.samsung.hardware.gnss-service
 vendor/etc/gnss/ca.pem
 vendor/etc/gnss/gps.cfg
 vendor/etc/init/init.gps.rc
-vendor/lib64/hw/android.hardware.gnss@2.1-impl.so;FIX_SONAME
+vendor/etc/init/vendor.samsung.hardware.gnss-service.rc
 vendor/lib64/libwrappergps.so
+vendor/lib64/vendor.samsung.hardware.gnss-V4-ndk.so
 
-# Graphics - from a54x - A546BXXUJFZE9
-vendor/lib64/egl/libGLES_mali.so;SYMLINK=vendor/lib64/libOpenCL.so,vendor/lib64/libOpenCL.so.1,vendor/lib64/libOpenCL.so.1.1|668906da1c05740cbedf3cf4476ee550ace4c955
-vendor/lib64/hw/vulkan.mali.so|8d5c6634ec83b9d1940eb8327e2d84a2c3c6da56
+# Graphics
+vendor/lib64/egl/libGLES_mali.so;SYMLINK=vendor/lib64/libOpenCL.so,vendor/lib64/libOpenCL.so.1,vendor/lib64/libOpenCL.so.1.1
+vendor/lib64/hw/vulkan.mali.so
 
 # Miscellaneous
 vendor/lib64/libfloatingfeature.so
 vendor/lib64/libsecnativefeature.so
 
 # Neural Networks
-vendor/lib64/libcommon.so
-vendor/lib64/libcommon_graphgen_export.so
-vendor/lib64/libcrane_compiler.so
-vendor/lib64/libdove_compiler.so
+vendor/bin/hw/vendor.samsung_slsi.hardware.eden_runtime_aidl-service
+vendor/bin/hw/vendor.samsung_slsi.hardware.enn_aux_aidl-service
+vendor/etc/init/eden-default.rc
+vendor/etc/init/enn-aux.rc
+vendor/etc/vintf/manifest/eden-default.xml
+vendor/etc/vintf/manifest/enn-aux.xml
 vendor/lib64/libeden_model.so
 vendor/lib64/libeden_nn.so
+vendor/lib64/libeden_nn_on_vendor.so
 vendor/lib64/libeden_osal.so
 vendor/lib64/libeden_profiler.so
 vendor/lib64/libeden_rt.so
+vendor/lib64/libeden_rt_stub_vendor.edensdk.samsung.so
 vendor/lib64/libeden_ud_cpu.so
 vendor/lib64/libeden_ud_dsp.so
 vendor/lib64/libeden_ud_gpu.so
 vendor/lib64/libeden_ud_npu.so
+vendor/lib64/libeden_wrapper.so
+vendor/lib64/libeden_wrapper_sdk.so
 vendor/lib64/libeden_xtool.so
 vendor/lib64/libenn_dsp_dal.so
 vendor/lib64/libenn_dsp_fw_graph_parser.so
 vendor/lib64/libenn_dsp_kernels_cpu.so
-vendor/lib64/libgraphgen_ann_import.so
-vendor/lib64/libgraphgen_ann_import_s.so
-vendor/lib64/libgraphgen_ann_nnc.so
-vendor/lib64/libgraphgen_api.so
-vendor/lib64/libgraphgen_export.so
-vendor/lib64/libgraphgen_import.so
-vendor/lib64/libgraphgen_intermediate_process.so
-vendor/lib64/libgraphgen_misc.so
-vendor/lib64/libgraphgen_network.so
-vendor/lib64/libir.so
-vendor/lib64/libnpu_compiler.so
-vendor/lib64/libnpuc_api.so
-vendor/lib64/libnpuc_backend.so
-vendor/lib64/libnpuc_cmdq.so
-vendor/lib64/libnpuc_common.so
-vendor/lib64/libnpuc_controller.so
-vendor/lib64/libnpuc_frontend.so
-vendor/lib64/libnpuc_graph.so
-vendor/lib64/libnpuc_template.so
-vendor/lib64/libsait_npu_compiler.so
-vendor/lib64/libtoco_graphgen_export.so
+vendor/lib64/vendor.samsung_slsi.hardware.eden_runtime_aidl-V1-ndk.so
+vendor/lib64/vendor.samsung_slsi.hardware.eden_runtime_aidl-impl.so
+vendor/lib64/vendor.samsung_slsi.hardware.enn_aux_aidl-V1-ndk.so
+vendor/lib64/vendor.samsung_slsi.hardware.enn_aux_aidl-impl.so
 
 # Neural Networks - Configuration
 vendor/etc/eden/enn_preset.json
 
 # Neural Networks - Firmware
-vendor/etc/eden/gpu/eden_kernel_64.bin
+vendor/eden/gpu/eden_kernel_64.bin
 vendor/firmware/OD_V2.1.6_01_26_QVGA.nnc
 vendor/firmware/OD_V2.3.7_02_05_VGA.nnc
 
-# RIL - from a55x - A556BXXSHDZH6
-vendor/lib64/libsecril-client.so|08be69e0a57e034f6b0b653aaff201509d7dfc5b
+# RIL
+vendor/lib64/libsecril-client.so
 
 # RIL - Init
 vendor/etc/init/init.baseband.rc
@@ -158,7 +152,7 @@ vendor/lib64/libskeymint_cli.so
 # Security - TEEGRIS
 vendor/bin/tzdaemon
 vendor/bin/tzts_daemon
-vendor/etc/init/teegris_v4.rc
+vendor/etc/init/teegris.rc
 vendor/lib64/libteecl.so
 vendor/lib64/libuuid.so;MODULE_SUFFIX=.vendor
 
@@ -174,9 +168,9 @@ vendor/etc/init/init.sensorhub.rc
 vendor/etc/wifi/p2p_supplicant_overlay.conf
 vendor/etc/wifi/wpa_supplicant_overlay.conf
 
-# Wi-Fi - Firmware - from a53x - A536BXXSHFYI1
-vendor/firmware/wifi/mx140.bin|a2296e70ff2652ef1f02a5838a8708a60e9845f7
-vendor/firmware/wifi/mx140_t.bin|cd583f241fb0126f86b7bba05fd565801a117b47
+# Wi-Fi - Firmware
+vendor/firmware/wifi/mx140.bin
+vendor/firmware/wifi/mx140_t.bin
 
 # Wi-Fi - Init
 vendor/etc/init/wifi.rc
