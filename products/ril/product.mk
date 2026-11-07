@@ -19,6 +19,8 @@ PRODUCT_PACKAGES += \
     secril_config_svc \
     sehradiomanager
 
+ENABLE_VENDOR_RIL_SERVICE := true
+
 $(call soong_config_set,cbd,protocol,sipc)
 
 # RIL - Configuration
