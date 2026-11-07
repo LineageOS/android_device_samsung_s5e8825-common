@@ -3,4 +3,6 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+allow bootanim sysfs_arm:file r_file_perms;
 dontaudit bootanim system_data_file:dir search;
+get_prop(bootanim, vendor_arm_prop)

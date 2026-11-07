@@ -3,4 +3,6 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+allow system_server sysfs_arm:file r_file_perms;
 binder_call(system_server, hal_camera_default)
+get_prop(system_server, vendor_arm_prop)
