@@ -4,3 +4,4 @@
 #
 
 dontaudit bootanim system_data_file:dir search;
+get_prop(bootanim, vendor_arm_prop)
