@@ -3,4 +3,6 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+allow surfaceflinger sysfs_arm:file r_file_perms;
+get_prop(surfaceflinger, vendor_arm_prop)
 get_prop(surfaceflinger, vendor_hwc_prop)
