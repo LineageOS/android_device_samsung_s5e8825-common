@@ -4,3 +4,4 @@
 #
 
 binder_call(system_server, hal_camera_default)
+get_prop(system_server, vendor_arm_prop)
