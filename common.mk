@@ -110,9 +110,6 @@ PRODUCT_PACKAGES += liboemcrypto
 # GMS
 PRODUCT_GMS_CLIENTID_BASE := android-samsung-ss
 
-# GNSS
-PRODUCT_PACKAGES += android.hardware.gnss@2.1-service.samsung
-
 # Graphics
 PRODUCT_PACKAGES += \
     android.hardware.composer.hwc3-service.slsi \
@@ -156,11 +153,6 @@ PRODUCT_PACKAGES += \
 # Kernel - Modules
 PRODUCT_PACKAGES += toolbox.vendor_ramdisk
 
-# Neural Networks
-PRODUCT_PACKAGES += \
-    android.hardware.neuralnetworks@1.3-service.eden-drv \
-    vendor.samsung_slsi.hardware.eden_runtime@1.0-service
-
 # Overlays
 PRODUCT_PACKAGES += \
     FrameworkResOverlayCommon \
@@ -202,8 +194,8 @@ PRODUCT_PACKAGES += \
     android.hardware.wifi.passpoint.prebuilt.xml \
     android.hardware.wifi.prebuilt.xml \
     android.software.ipsec_tunnels.prebuilt.xml \
-    android.software.opengles.deqp.level-2022-03-01.prebuilt.xml \
-    android.software.vulkan.deqp.level-2022-03-01.prebuilt.xml \
+    android.software.opengles.deqp.level-2023-03-01.prebuilt.xml \
+    android.software.vulkan.deqp.level-2023-03-01.prebuilt.xml \
     handheld_core_hardware.prebuilt.xml
 
 PRODUCT_COPY_FILES += \
