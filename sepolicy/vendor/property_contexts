@@ -7,9 +7,12 @@
 persist.vendor.camera.                   u:object_r:vendor_camera_prop:s0
 persist.vendor.sys.camera.               u:object_r:vendor_camera_prop:s0
 
-# HWC
+# Graphics
+ro.vendor.arm.                           u:object_r:vendor_arm_prop:s0
 vendor.hwc.                              u:object_r:vendor_hwc_prop:s0
+vendor.mali.                             u:object_r:vendor_arm_prop:s0
 
 # RIL
+persist.vendor.cbd.btl_size              u:object_r:vendor_cbd_prop:s0
 ro.vendor.multisim.simslotcount          u:object_r:vendor_radio_prop:s0
 ro.vendor.radio.default_network          u:object_r:vendor_radio_prop:s0
