@@ -33,7 +33,6 @@ vendor/lib64/libspatializerparamstorage.so
 vendor/firmware/APSV_AUDIO_SLSI.bin
 vendor/firmware/avsyncmix.bin
 vendor/firmware/bidirmic.bin
-vendor/firmware/dax_param.bin
 vendor/firmware/dolby.bin
 vendor/firmware/listenbackeffect.bin
 vendor/firmware/volumemonitor.bin
