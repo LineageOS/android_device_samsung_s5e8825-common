@@ -1,0 +1,6 @@
+#
+# SPDX-FileCopyrightText: The LineageOS Project
+# SPDX-License-Identifier: Apache-2.0
+#
+
+get_prop(hal_neuralnetworks_eden_drv_default, vendor_arm_prop)
