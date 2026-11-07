@@ -54,11 +54,6 @@
         </interface>
     </hal>
     <hal format="aidl">
-        <name>vendor.samsung.hardware.gnss</name>
-        <version>4</version>
-        <fqname>ISehGnss/default</fqname>
-    </hal>
-    <hal format="aidl">
         <name>vendor.lineage.touch</name>
         <version>1</version>
         <interface>
