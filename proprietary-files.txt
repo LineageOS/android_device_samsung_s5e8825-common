@@ -85,7 +85,6 @@ vendor/bin/hw/gpsd
 vendor/etc/gnss/ca.pem
 vendor/etc/gnss/gps.cfg
 vendor/etc/init/init.gps.rc
-vendor/lib64/hw/android.hardware.gnss@2.1-impl.so;FIX_SONAME
 vendor/lib64/libwrappergps.so
 
 # Graphics - from a54x - A546BXXUJFZE9
