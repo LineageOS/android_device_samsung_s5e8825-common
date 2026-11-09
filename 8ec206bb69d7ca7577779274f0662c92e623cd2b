@@ -16,6 +16,24 @@
       "message": "What is the difference if nothing is using this interface? Can\u0027t you just keep it as blobbed or build it from source? Shimming an interface is ugly imo.",
       "revId": "8ec206bb69d7ca7577779274f0662c92e623cd2b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4cfb2af_f3a7ebba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 36705
+      },
+      "writtenOn": "2026-11-09T12:16:07Z",
+      "side": 1,
+      "message": "In reality there is no difference but I hate having unnecessary blobs, so I decided to shim this interface and get rid of the superfluous dependency. We already shim other interfaces (some keymint ones and ISehThermal iirc), so it\u0027s a whatever now.\n\nI am holding back on this for now tho. I got OSS GNSS AIDL Service running which makes this commit unnecessary.",
+      "parentUuid": "b6343655_6414ee3b",
+      "revId": "8ec206bb69d7ca7577779274f0662c92e623cd2b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
