@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6343655_6414ee3b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 33569
+      },
+      "writtenOn": "2026-11-09T09:24:21Z",
+      "side": 1,
+      "message": "What is the difference if nothing is using this interface? Can\u0027t you just keep it as blobbed or build it from source? Shimming an interface is ugly imo.",
+      "revId": "8ec206bb69d7ca7577779274f0662c92e623cd2b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
