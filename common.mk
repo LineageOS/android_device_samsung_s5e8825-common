@@ -144,7 +144,8 @@ $(call soong_config_set_bool,lineage_health,charging_control_supports_bypass,tru
 # Health - Samsung
 PRODUCT_PACKAGES += \
     android.hardware.health-service.samsung \
-    android.hardware.health-service.samsung-recovery
+    android.hardware.health-service.samsung-recovery \
+    samsung_health_debug
 
 # Init
 PRODUCT_PACKAGES += \
