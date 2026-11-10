@@ -19,6 +19,24 @@ on init
     chown system radio /sys/class/sec/switch/afc_disable
     chown system system /sys/class/power_supply/battery/charging_enabled
 
+    # Permissions for Health HAL
+    chown system radio /sys/class/power_supply/battery/batt_type
+    chown system radio /sys/class/power_supply/battery/cisd_cable_data
+    chown system radio /sys/class/power_supply/battery/cisd_data
+    chown system radio /sys/class/power_supply/battery/cisd_event_data
+    chown system radio /sys/class/power_supply/battery/cisd_pd_data
+    chown system radio /sys/class/power_supply/battery/cisd_power_data
+    chown system radio /sys/class/power_supply/battery/cisd_tx_data
+    chown system radio /sys/class/power_supply/battery/cisd_wc_data
+    chmod 0660 /sys/class/power_supply/battery/batt_type
+    chmod 0660 /sys/class/power_supply/battery/cisd_cable_data
+    chmod 0660 /sys/class/power_supply/battery/cisd_data
+    chmod 0660 /sys/class/power_supply/battery/cisd_event_data
+    chmod 0660 /sys/class/power_supply/battery/cisd_pd_data
+    chmod 0660 /sys/class/power_supply/battery/cisd_power_data
+    chmod 0660 /sys/class/power_supply/battery/cisd_tx_data
+    chmod 0660 /sys/class/power_supply/battery/cisd_wc_data
+
     # GFX
     chown system system /sys/kernel/asv/power_model_0
     chown system system /sys/kernel/asv/power_model_1
