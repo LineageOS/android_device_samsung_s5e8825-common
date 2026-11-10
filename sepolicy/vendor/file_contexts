@@ -22,6 +22,8 @@
 
 # Graphics
 /dev/mali0                                                            u:object_r:gpu_device:s0
+/vendor/lib64/hw/mapper.arm.so                                        u:object_r:same_process_hal_file:s0
+/vendor/lib64/libgralloc_registered_handle_pool.so                    u:object_r:same_process_hal_file:s0
 
 # Sensors
 /sys/devices/platform/shub/iio:device[0-9]+/buffer/data_available     u:object_r:sysfs_sensors_writable:s0
