@@ -71,7 +71,7 @@ TARGET_EXCLUDES_AUDIOFX := true
 
 # Bluetooth
 PRODUCT_PACKAGES += \
-    android.hardware.bluetooth@1.1-service \
+    android.hardware.bluetooth-service.samsung \
     libbt-vendor
 
 # Bluetooth - Configuration
