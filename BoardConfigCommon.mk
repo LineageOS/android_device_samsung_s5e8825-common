@@ -11,8 +11,9 @@ TARGET_CPU_VARIANT := cortex-a76
 
 # Kernel
 BOARD_KERNEL_IMAGE_NAME := Image
-TARGET_KERNEL_CONFIG := s5e8825_defconfig $(TARGET_DEVICE).config
-TARGET_KERNEL_SOURCE := kernel/samsung/s5e8825
+TARGET_KERNEL_CLANG_VERSION := r510928
+TARGET_KERNEL_CONFIG := a53x_defconfig
+TARGET_KERNEL_SOURCE := kernel/samsung/s5e8825-6.6
 
 # Kernel - Modules
 BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(strip $(shell cat device/samsung/$(TARGET_DEVICE)/configs/kernel/modules.load))
