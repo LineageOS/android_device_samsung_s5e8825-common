@@ -252,7 +252,8 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/samsung_slsi/libbt \
     hardware/samsung_slsi/scsc_wifibt/wpa_supplicant_lib \
     hardware/samsung_slsi-linaro/exynos/libaudio/audiohal_comv1 \
-    hardware/samsung_slsi-linaro/exynos/libaudio/audiohal_comv1/proxy
+    hardware/samsung_slsi-linaro/exynos/libaudio/audiohal_comv1/proxy \
+    hardware/samsung_slsi-linaro/exynos/gralloc/gralloc4
 
 $(call inherit-product, hardware/samsung_slsi-linaro/config/config.mk)
 
