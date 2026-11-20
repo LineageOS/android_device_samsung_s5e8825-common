@@ -5,5 +5,3 @@
 
 on boot
     chown system system /sys/class/sec/tsp/scrub_pos
-
-    write /sys/class/sec/tsp/cmd "fod_enable,1,1,0"
