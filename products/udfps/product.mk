@@ -14,6 +14,7 @@ PRODUCT_PACKAGES += init.udfps.rc
 # Overlays
 PRODUCT_PACKAGES += \
     FrameworkResOverlayUdfps \
+    SamsungBiometricServiceOverlay \
     SystemUIOverlayUdfps
 
 # Properties
@@ -21,3 +22,6 @@ TARGET_VENDOR_PROP += device/samsung/s5e8825-common/products/udfps/configs/props
 
 # Sensors
 PRODUCT_PACKAGES += sensors.samsung
+
+# Service
+PRODUCT_PACKAGES += SamsungBiometricService
