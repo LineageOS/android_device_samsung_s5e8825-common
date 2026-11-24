@@ -4,6 +4,9 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+from functools import partial
+
+from extract_utils.file import File
 from extract_utils.fixups_blob import (
     blob_fixup,
     blob_fixups_user_type,
@@ -12,6 +15,7 @@ from extract_utils.main import (
     ExtractUtils,
     ExtractUtilsModule,
 )
+from extract_utils.makefiles import write_product_copy_files
 
 
 namespace_imports = [
@@ -25,7 +29,9 @@ blob_fixups: blob_fixups_user_type = {
     # Camera - Dependecies
     'vendor/lib64/libsensorlistener.so': blob_fixup().add_needed('libsensorndkbridge_shim.samsung.so'),
     # GNSS
-    'vendor/bin/hw/gpsd': blob_fixup().binary_regex_replace(b'libcrypto.so', b'libcryptx.so'),
+    'vendor/bin/hw/gpsd': blob_fixup()
+        .patch_file('scripts/blob-patches/gpsd.py', need_tmp_dir=False)
+        .binary_regex_replace(b'libcrypto.so', b'libcryptx.so'),
     'vendor/etc/init/init.gps.rc': blob_fixup()
         .regex_replace(r'\n.*:[\s\S]*', '')
         .regex_replace('.sh', 'd /vendor/etc/gnss/gps.cfg'),
@@ -87,12 +93,20 @@ blob_fixups: blob_fixups_user_type = {
 module = ExtractUtilsModule(
     's5e8825-common',
     'samsung',
+    skip_main_proprietary_file=True,
     namespace_imports=namespace_imports,
     blob_fixups=blob_fixups,
     lib_fixups={
         # Security - TEEGRIS
         'libuuid': lambda lib, *_: f'{lib}.vendor'
     },
+)
+
+module.add_proprietary_file(
+    'proprietary-files.txt',
+    post_makefile_generation_fn=partial(
+        write_product_copy_files, files=[File('vendor/firmware/gnss.bin')]
+    ),
 )
 
 module.add_proprietary_file(
