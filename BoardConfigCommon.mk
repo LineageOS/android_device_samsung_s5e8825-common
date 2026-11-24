@@ -90,7 +90,7 @@ TARGET_SOC := s5e8825
 include hardware/samsung_slsi-linaro/config/BoardConfig8825.mk
 
 # Releasetools - Extension
-TARGET_RELEASETOOLS_EXTENSIONS := device/samsung/s5e8825-common
+TARGET_RELEASETOOLS_EXTENSIONS := device/samsung/s5e8825-common/scripts/releasetools
 
 # SELinux
 BOARD_SEPOLICY_TEE_FLAVOR := teegris
