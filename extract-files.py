@@ -31,7 +31,7 @@ blob_fixups: blob_fixups_user_type = {
     # GNSS
     'vendor/bin/hw/gpsd': blob_fixup()
         .patch_file('scripts/blob-patches/gpsd.py', need_tmp_dir=False)
-        .binary_regex_replace(b'libcrypto.so', b'libcryptx.so'),
+        .replace_needed('libcrypto.so', 'libcrypto-v33.so'),
     'vendor/etc/init/init.gps.rc': blob_fixup()
         .regex_replace(r'\n.*:[\s\S]*', '')
         .regex_replace('.sh', 'd /vendor/etc/gnss/gps.cfg'),
