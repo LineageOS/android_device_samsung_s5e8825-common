@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4827db51_31df1fca",
+        "filename": "hardware/hdrinterface/hdrInterface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 34207
+      },
+      "writtenOn": "2026-11-25T19:27:47Z",
+      "side": 1,
+      "message": "Two thing with this struct:\n1. it should just contain HdrLayerInfo instead of a copy of its contents.\n2. it was only used as a temporary workaround, the brightness for individual layers should be passed along from HWC (work in progress so far).",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 6
+      },
+      "revId": "26ef76869da0649b2ab966dc29ed52bc1f49c054",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
